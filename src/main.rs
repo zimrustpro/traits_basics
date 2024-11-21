@@ -11,6 +11,15 @@ fn main() {
         age: 4,
     };
     println!("{mr_mantle}");
+    print_excitedly(mr_mantle.to_string());
+    println!(
+        "Mr. Mantle's String is {} characters long.",
+        mr_mantle.to_string().chars().count()
+    );
+}
+
+fn print_excitedly(input: String) {
+    println!("{input}!!!!!");
 }
 
 impl Display for Cat {
