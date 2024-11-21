@@ -1,5 +1,5 @@
 struct Monster {
-    health: usize,
+    health: i32,
 }
 
 struct Wizard {}
