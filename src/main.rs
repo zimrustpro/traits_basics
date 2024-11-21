@@ -1,26 +1,20 @@
-fn main() {
-    let rover = Animal {
-        name: "Rover".to_string(),
-    };
-    rover.bark();
-    rover.run();
-}
+use std::fmt::Display;
 
-struct Animal {
+struct Cat {
     name: String,
+    age: u8,
 }
 
-trait DogLike {
-    fn run(&self);
-    fn bark(&self);
+fn main() {
+    let mr_mantle = Cat {
+        name: "Reggie Mantle".to_string(),
+        age: 4,
+    };
+    println!("{mr_mantle}");
 }
 
-impl DogLike for Animal {
-    fn bark(&self) {
-        println!("{}, stop barking!!", self.name);
-    }
-
-    fn run(&self) {
-        println!("{} is running!", self.name)
+impl Display for Cat {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{} is a cat who is {} years old", self.name, self.age)
     }
 }
