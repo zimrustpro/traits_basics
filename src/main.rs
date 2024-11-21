@@ -1,38 +1,26 @@
 fn main() {
-    let rover = Dog {
+    let rover = Animal {
         name: "Rover".to_string(),
-    };
-    let brian = Parrot {
-        name: "Brian".to_string(),
     };
     rover.bark();
     rover.run();
-    brian.bark();
-    brian.run();
 }
 
-struct Dog {
-    name: String,
-}
-
-struct Parrot {
+struct Animal {
     name: String,
 }
 
 trait DogLike {
-    fn bark(&self) {
-        println!("Woof woof!");
-    }
-
-    fn run(&self) {
-        println!("The dog is running!")
-    }
+    fn run(&self);
+    fn bark(&self);
 }
 
-impl DogLike for Dog {}
+impl DogLike for Animal {
+    fn bark(&self) {
+        println!("{}, stop barking!!", self.name);
+    }
 
-impl DogLike for Parrot {
     fn run(&self) {
-        println!("{} the parrot is running!", self.name);
+        println!("{} is running!", self.name)
     }
 }
