@@ -8,6 +8,7 @@ fn main() {
     rover.bark();
     rover.run();
     brian.bark();
+    brian.run();
 }
 
 struct Dog {
@@ -29,4 +30,9 @@ trait DogLike {
 }
 
 impl DogLike for Dog {}
-impl DogLike for Parrot {}
+
+impl DogLike for Parrot {
+    fn run(&self) {
+        println!("{} the parrot is running!", self.name);
+    }
+}
